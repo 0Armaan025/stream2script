@@ -11,3 +11,28 @@
   font-size: 2.5rem;
   font-family: "Poppins";
 }
+
+.superCoolTextDiv h4 {
+  font-size: 1rem;
+}
+
+/* bg-[#beff53] transition-all hover:bg-[#6c9726] text-black cursor-pointer
+ */
+
+.startNowBtn {
+  background: #aff63d;
+  transition: 0.3s ease-in-out;
+  color: black;
+  cursor: pointer;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  margin-top: 30px;
+  padding-bottom: 0.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+.startNowBtn:hover {
+  background: #c3ff62;
+}

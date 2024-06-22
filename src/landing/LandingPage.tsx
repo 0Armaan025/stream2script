@@ -1,6 +1,7 @@
 import React from "react";
 import "./landingpage.css";
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 type Props = {};
 
@@ -18,14 +19,14 @@ const LandingPage = (props: Props) => {
           flexDirection: "column",
         }}
       >
-        <div className="version1Div w-full  " style={{ marginTop: "50px" }}>
+        <div className="version1Div  " style={{ marginTop: "50px" }}>
           <h4
             style={{
               fontFamily: "Jura, sans-serif",
               background: "#e1e4e8",
               padding: "6px",
-              paddingRight: "20px",
-              paddingLeft: "20px",
+              paddingRight: "5px",
+              paddingLeft: "5px",
               borderRadius: "20px",
             }}
           >
@@ -47,11 +48,18 @@ const LandingPage = (props: Props) => {
               </span>
               <br />
             </h3>
-            <h4>Revolutionize the way manage time</h4>
-            <h4>take the control back!</h4>
+            <h4 style={{ marginTop: "12px", fontFamily: "Poppins" }}>
+              Revolutionize the way you manage time by reading pdfs
+            </h4>
+            <h4>and watching videos, take the control back!</h4>
           </div>
         </div>
+        <center>
+          <button className="startNowBtn">Start now</button>
+          <img src="/inputoutput.png" />
+        </center>
       </div>
+      <Footer />
     </>
   );
 };
