@@ -1,28 +1,36 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import axios from "axios";
 import "./convertpage.css";
+import FlipbookViewer from "./Flipbook";
 
 const ConvertPage: React.FC = () => {
   const [videoLink, setVideoLink] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
   const [shouldSummarize, setShouldSummarize] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [pdfImages, setPdfImages] = useState<string[]>([]);
+  const [showFlipbook, setShowFlipbook] = useState<boolean>(false);
+
+  const handleFlipbookOpen = () => {
+    // Toggle the state to show the flipbook
+    setShowFlipbook(!showFlipbook);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVideoLink(e.target.value);
+  };
+
+  const handleCheckboxChange = () => {
+    setShouldSummarize(!shouldSummarize);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFile(e.target.files[0]);
     }
-  };
-
-  const handleCheckboxChange = () => {
-    setShouldSummarize(!shouldSummarize);
   };
 
   const handleConvertClick = async () => {
@@ -184,13 +192,27 @@ const ConvertPage: React.FC = () => {
       <br />
       <center>
         <input
-          type="button"
-          value="Open PDF"
-          className="bg-[#e8a1a1] px-4 rounded-sm text-xl py-1 text-[#72371c] cursor-pointer hover:bg-[#d68b8b]"
-          style={{ fontFamily: "Poppins" }}
+          type="file"
+          accept=".pdf"
+          className="bg-[#eba7a7] p-2 px-4 rounded-md font-semibold cursor-pointer hover:bg-[#f7bcbc] transition-all"
+          style={{ color: "#72371c", fontFamily: "Poppins" }}
+          onChange={handleFileChange}
         />
+        <input
+          type="button"
+          value="Open PDF as Flipbook"
+          className="bg-[#e8a1a1] px-4 rounded-sm text-xl py-1 text-[#72371c] cursor-pointer hover:bg-[#d68b8b] mt-4"
+          style={{ fontFamily: "Poppins" }}
+          onClick={handleFlipbookOpen}
+        />
+        {showFlipbook && file && (
+          <div className="flipbookContainer">
+            <FlipbookViewer pdfFile={file} />
+          </div>
+        )}
         <br />
       </center>
+
       <Footer />
     </>
   );
