@@ -177,7 +177,7 @@ const ConvertPage: React.FC = () => {
         <div className="w-full flex justify-center items-center">
           {loading && (
             <p className="font-semibold text-lg text-[#d79f88] mt-4">
-              Please wait... Loading
+              Please wait... Loading (avg. time: 2 minutes)
             </p>
           )}
         </div>
