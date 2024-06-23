@@ -36,3 +36,42 @@
 .startNowBtn:hover {
   background: #c3ff62;
 }
+
+@media screen and (max-width: 768px) {
+  /* Example breakpoint for tablets and smaller screens */
+  .superCoolTextDiv h3 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  .superCoolTextDiv h4 {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  .startNowBtn {
+    font-size: 0.9rem; /* Adjust button text size */
+  }
+
+  /* Adjust any other styles as needed */
+}
+
+@media screen and (max-width: 480px) {
+  /* Example breakpoint for mobile devices */
+  .superCoolTextDiv h3 {
+    font-size: 1.8rem; /* Further reduce font size for smaller screens */
+  }
+
+  .superCoolTextDiv h4 {
+    font-size: 0.8rem; /* Further reduce font size for smaller screens */
+  }
+
+  .startNowBtn {
+    font-size: 0.8rem; /* Further reduce button text size */
+  }
+
+  /* Adjust any other styles as needed */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

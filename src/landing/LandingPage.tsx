@@ -2,6 +2,7 @@ import React from "react";
 import "./landingpage.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import Link from "next/link";
 
 type Props = {};
 
@@ -55,7 +56,16 @@ const LandingPage = (props: Props) => {
           </div>
         </div>
         <center>
-          <button className="startNowBtn">Start now</button>
+          <Link href="/convert">
+            <button className="startNowBtn">Start now</button>
+          </Link>
+          <img
+            src="/real-ss.png"
+            height={800}
+            width={1100}
+            className="my-4"
+            style={{ marginTop: "20px" }}
+          />
           <img src="/inputoutput.png" />
         </center>
       </div>
