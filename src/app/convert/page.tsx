@@ -43,20 +43,32 @@ const ConvertPage: React.FC = () => {
         formData.append("video", file);
         formData.append("shouldSummarize", shouldSummarize.toString());
         endpoint = "upload-video";
-        await axios.post(
+        const response = await axios.post(
           `https://5000-0armaan025-stream2scrip-b9k60oacmtb.ws-us114.gitpod.io/${endpoint}`,
           formData,
           { responseType: "blob" }
         );
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "output.pdf");
+        document.body.appendChild(link);
+        link.click();
       } else if (videoLink) {
         endpoint = shouldSummarize ? "summarize" : "get-pdf";
-        await axios.get(
+        const response = await axios.get(
           `https://5000-0armaan025-stream2scrip-b9k60oacmtb.ws-us114.gitpod.io/${endpoint}`,
           {
             params: { video_link: videoLink },
             responseType: "blob",
           }
         );
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "output.pdf");
+        document.body.appendChild(link);
+        link.click();
       } else {
         throw new Error(
           "Please provide a YouTube video link or upload a file."
@@ -118,7 +130,7 @@ const ConvertPage: React.FC = () => {
                 className="mt-1 md:ml-2 px-2 py-1 rounded-full bg-[#aff049] text-white hover:bg-[#86c029] transition-all"
                 onClick={handleConvertClick}
               >
-                &gt;
+                -&gt;
               </button>
             </div>
             <div className="flex mt-2 items-center">
