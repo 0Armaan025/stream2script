@@ -5,6 +5,27 @@
 <br>
 Convert any mp4 into a cool pdf, want it summarized? there you go, get it served!
 <br>
+
+This is how it works!:
+<br>
+- It takes the youtube video url from the user or the mp4 file
+<br>
+- then, it downloads the youtube video as .mp4 or just process the .mp4 file uploaded by the user
+<br>
+- then, it will convert that into .mp3 file.
+<br>
+- then, it will convert that .mp3 into .wav file
+<br>
+- then, it will start creating chunks, smaller chunks of .wav file, for ex: first chunk of first 5 seconds of audio along with the picture (thumbnail) at the 5th second.
+<br>
+- it will use openai's whisper model to get the text from the first chunk, put it into the pdf, and just below it, put the picture at that second, and does it over and over
+<br>
+- till the video ends.
+<br>
+- uses claude3 for summarization.
+<br>
+- I am using flask, so it has routes, I can just send a request to those routes to get the video summarized into a pdf or just a video into a pdf.
+<br>
 <br>
 ## How to get it working?
 <br>
