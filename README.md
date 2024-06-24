@@ -17,6 +17,7 @@ Second step: run this command: `` cd stream2script-api ``
 <br>
 Third step: run this command: ``pip install -r requirements.txt``
 <br>
+
 **using python version: 3.12.x**
 <br>
 Fourth step: create .env file if already not existing, write ```ANTHROPIC_API_KEY=<your_key_here>```
@@ -37,6 +38,7 @@ You can also create a virtual env if you want to!
 <br>
   5.) run this command: ``npm run dev``.
 <br>
+  
 **Make sure to give it a ⭐**
 <br>
 ## Thanks!
